@@ -8,7 +8,8 @@
         "allowSyntheticDefaultImports": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "pretty": true
+        "pretty": true,
+        "experimentalDecorators": true
     },
     "include": [
         "../src/**/*"

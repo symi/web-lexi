@@ -7,39 +7,33 @@
 </template>
 
 <script lang="ts">
-import Vue, {ComponentOptions} from "vue";
+import Vue from 'vue';
+import Component from 'vue-class-component'
 
-// Declare the component's type
-interface HelloComponent extends Vue {
-  initialEnthusiasm: number
-  enthusiasm: number
-  name: string
-  increment(): void
-  decrement(): void
-}
+@Component({
+    props: {
+        name: String,
+        initialEnthusiasm: Number
+    }
+})
+export default class HelloComponent extends Vue {
+    initialEnthusiasm: number
+    enthusiasm: number = this.initialEnthusiasm
 
+    increment(): void { 
+        this.enthusiasm++; 
+    }
 
-export default Vue.extend({    
-    props: ['name', 'initialEnthusiasm'],
-    data() {
-        return {
-            enthusiasm: this.initialEnthusiasm,
-        }
-    },
-    methods: {
-        increment() { this.enthusiasm++; },
-        decrement() {
-            if (this.enthusiasm > 1) {
-                this.enthusiasm--;
-            }
-        },
-    },
-    computed: {
-        exclamationMarks(): string {
-            return Array(this.enthusiasm + 1).join('!');
+    decrement(): void {
+        if (this.enthusiasm > 1) {
+            this.enthusiasm--;
         }
     }
-} as ComponentOptions<HelloComponent>);
+
+    get exclamationMarks(): string {
+        return Array(this.enthusiasm + 1).join('!');
+    }
+}
 </script>
 
 <style>
