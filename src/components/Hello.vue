@@ -36,8 +36,9 @@ export default class HelloComponent extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss">
+$me-size: 20px;
 .greeting {
-    font-size: 20px;
+    font-size: $me-size;
 }
 </style>

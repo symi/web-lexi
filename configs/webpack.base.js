@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/app.ts',
@@ -50,9 +50,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true
-  },
-  performance: {
-    hints: false
   },
   devtool: '#eval-source-map'
 }
